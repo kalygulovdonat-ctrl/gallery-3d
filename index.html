@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Код и краска — выставка генеративного искусства</title>
+<meta name="description" content="Шесть работ, которые рисует код. Пройдите по залу прямо в браузере и купите билет на выставку.">
+<meta name="theme-color" content="#f4f4f1">
+<meta property="og:title" content="Код и краска — выставка генеративного искусства">
+<meta property="og:description" content="Пройдите по залу прямо в браузере.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Mono&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+</head>
+<body class="is-loading">
+<a class="skip" href="#visit">Перейти к билетам</a>
+<canvas id="scene" aria-hidden="true"></canvas>
+
+<header class="top">
+  <a class="logo" href="#hero">Зал&nbsp;3</a>
+  <p class="top__where mono" aria-live="polite"><span id="where">Вход</span></p>
+  <a class="btn btn--small" href="#visit">Билеты</a>
+</header>
+
+<main>
+  <section class="sec sec--hero" id="hero">
+    <div class="copy">
+      <p class="mono">Выставка · 12 сентября — 30 ноября 2027</p>
+      <h1>Код <em>и</em> краска</h1>
+      <p class="lead">Шесть работ, которые не&nbsp;написаны, а&nbsp;запущены: каждая рисует себя заново, пока вы на&nbsp;неё смотрите. Листайте — и&nbsp;идите по&nbsp;залу.</p>
+      <div class="actions">
+        <a class="btn" href="#visit">Купить билет</a>
+        <a class="link" href="#w0">Войти в&nbsp;зал ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="works"></div>
+
+  <section class="sec sec--visit" id="visit">
+    <div class="ticket">
+      <p class="mono">Билеты</p>
+      <h2>Приходите <em>смотреть</em> вживую</h2>
+      <fieldset class="types" id="types"><legend class="mono">Тип билета</legend></fieldset>
+      <div class="qty"><span class="mono">Количество</span>
+        <div class="qty__ctl"><button type="button" id="minus" aria-label="Меньше">−</button><output id="qty" aria-live="polite">2</output><button type="button" id="plus" aria-label="Больше">+</button></div>
+      </div>
+      <div class="sum"><span class="mono">Итого</span><b id="sum"></b></div>
+      <form id="buy" novalidate>
+        <label class="mono" for="email">Почта для билета</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="btn btn--wide" type="submit">Купить</button>
+        <p class="note mono" id="note" role="status" aria-live="polite"></p>
+      </form>
+      <p class="fine">Вт—Вс, 11:00—21:00 · ул. Примерная, 3 · © 2027 Зал 3</p>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
